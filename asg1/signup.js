@@ -1,57 +1,97 @@
 const form=document.getElementById("form");
 const username=document.getElementById("username");
 const email=document.getElementById("email");
+const address=document.getElementById("address");
+const gender=document.getElementById("gender");
+const dob=document.getElementById("dob");
 const password=document.getElementById("password");
 const password2=document.getElementById("password2");
 const phoneno=document.getElementById("phoneno");
-form.addEventListener("submit", (e) => {
-     e.preventDefault();
-    checkInputs();
-});
+form.addEventListener("submit", checkInputs());
 function checkInputs(){
+    let check = false;
     const usernameValue = username.value.trim();
     const emailValue = email.value.trim();
+    const addressValue = address.value.trim();
+    const genderValue = gender.value.trim();
+    const dobValue = dob.value.trim();
     const passwordValue = password.value.trim();
     const password2Value = password2.value.trim();
     const phonenoValue = phoneno.value;
     if(usernameValue === ""){
         setErrorFor(username, "Username cannot be blank");
+        check =  false;
     } else{
-        
+        check = true;
         setSuccessFor(username);
     }
     if(emailValue === ""){
         setErrorFor(email, "Email cannot be blank");
+        check =  false;
     } else if(!isEmail(emailValue)){
         setErrorFor(email, "Email is not valid");
+        check = false;
     } else {  
         setSuccessFor(email);
+        check = true;
+    }
+    if(addressValue === ""){
+        setErrorFor(address, "Address cannot be blank");
+        check = false;
+    } else{
+        check = true;
+        setSuccessFor(address);
+    }
+    if(genderValue === ""){
+        setErrorFor(gender, "Gender cannot be blank");
+        check = false;
+    } else{
+        check = true;
+        setSuccessFor(gender);
+    }
+    if(dobValue === ""){
+        setErrorFor(dob, "Date of birth cannot be blank");
+        check = false;
+    } else{
+        check = true;
+        setSuccessFor(dob);
     }
     if(passwordValue === ""){
+        check = false;
         setErrorFor(password,"Password cannot be blank");
     } else if(passwordValue.length < 8){
         setErrorFor(password,"Password should contain minimum 8 characters");
+        check = false;
     } else {    
         setSuccessFor(password);
+        check = true;
     }
     if(password2Value === ""){
         setErrorFor(password2,"Confirm Password cannot be blank");
+        check = false;
     } else if(password2Value.length < 8){
         setErrorFor(password2,"Password should contain minimum 8 characters");
+        check = false;
     } else if(passwordValue !== password2Value) {
         setErrorFor(password2, "Passwords doesn't match");
+        check = false;
     } else {    
         setSuccessFor(password2);
+        check = true;
     }
     if(phonenoValue === ""){
         setErrorFor(phoneno, "Phone number cannot be blank");
+        check = false;
     } else if(!isPhoneNo(phonenoValue)) {
         setErrorFor(phoneno, "Phone number is not valid");
+        check = false;
     } else { 
          setSuccessFor(phoneno);
-    
+         check = true;    
     }
-
+    if(check === true){
+        location.assign = "login.html";
+    }
 }
 function setErrorFor(input, message) {
     const section = input.parentElement;
