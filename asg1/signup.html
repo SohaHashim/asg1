@@ -26,12 +26,7 @@
             <li class="nav-item">
               <a class="nav-link" href="login.html">Log In</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Category</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Category</a>
-              </li>
+  
           </ul>
         </div>
       </nav>
@@ -39,7 +34,7 @@
       <div class="header">       
           <h2>Create Account</h2>
       </div>
-          <form class="form" id="form" action="login.html" onsubmit= " return checkInputs();"  >
+          <form class="form" id="form" action = "login.html" onsubmit="return checkInputs();">
               <div class="section">
                   <label>Username</label>
                   <input type="text" name="" value="" id="username"> 
@@ -54,6 +49,27 @@
                   <i class="fa fa-exclamation-circle"></i>
                   <small>Error message</small>
               </div>
+              <div class="section">
+                <label>Address</label>
+                <input type="text" name="" value="" id="address">
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="section">
+              <label>Gender</label>
+              <input type="text" name="" value="" id="gender"> 
+              <i class="fa fa-check-circle" aria-hidden="true"></i>
+              <i class="fa fa-exclamation-circle"></i>
+              <small>Error message</small>
+          </div>
+          <div class="section">
+            <label>DOB</label>
+            <input type="number" name="" value="" id="dob"> 
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            <i class="fa fa-exclamation-circle"></i>
+            <small>Error message</small>
+        </div>
               <div class="section">
                   <label>Password</label>
                   <input type="password" name="" value="" onkeyup="validatePassword(this.value);" id="password"><span id="msg"></span> 
